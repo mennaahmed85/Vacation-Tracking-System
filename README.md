@@ -10,7 +10,7 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
 - Reduce the workload on the HR department.
 - Improve the efficiency of internal business processes, especially in handling vacation requests.
 
-##(2) Functional Requirements
+## (2) Functional Requirements
 
 - The system validates and verifies leave requests using a rules-based mechanism.
 - The system allows managers to approve or reject vacation requests.
@@ -22,7 +22,7 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
 - The system provides an interface for other internal systems to access employee vacation summaries.
 - The system integrates with HR legacy systems to retrieve employee data.
 
-##(3) Non-Functional Requirements
+## (3) Non-Functional Requirements
 
 - The system must be easy to use.
 - The system should reduce processing time.
@@ -30,26 +30,28 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
 - The system should be secure.
 - The system should be reliable.
 
-- ##(4) Constraints
+- ## (4) Constraints
 
 - The system must use existing hardware and middleware.
 - The system must be implemented as an extension to the existing intranet portal.
 - The system must use single sign-on (SSO) for authentication.
 
-- ##(5) Domain
+- ## (5) Domain
   
 -The system operates within an organization where vacation requests were previously handled manually, causing delays in approval and adding extra workload for the HR department.
 -Managers also had limited visibility into employees' vacation activities.
 -To address these issues, the company decided to implement a Vacation Tracking System that automates the request process and integrates with existing internal systems.
 
-##(6) Actors
+## (6) Actors
 
 - Employee
 - Manager
 - HR Staff
 - System Administrator
 
-- ##(7) Entities (Data Model)
+## (7) Use-Case :- Manage Time
+
+- ## (7.1) Entities (Data Model)
 
 - Employee
   - employeeId
@@ -71,7 +73,48 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
   - totalDays
   - remainingDays
  
-  - ##(8) flow chart
+  - ## (7.2) Flowchart Diagram 
  
   - <img width="749" height="1961" alt="flowChart drawio" src="https://github.com/user-attachments/assets/70ed3451-0fc5-4216-ac0d-1b4dac63d805" />
 
+## (7.4) Pseudocode(Main flow) 
+
+```
+START
+
+Employee opens VTS
+
+System displays requests and balance
+
+Employee selects leave type
+
+Employee enters dates and details
+
+IF data is invalid THEN
+    SHOW ERROR
+    GO BACK to input
+ELSE
+    Submit request
+    Set status = Pending
+END IF
+
+IF request DOES NOT require manager approval THEN
+    Set status = Approved
+    Send email to employee with approval
+ELSE
+    Send email to manager
+    Manager reviews request
+
+    IF manager approves THEN
+        Set status = Approved
+        Send email to employee with approval
+    ELSE
+        Set status = Rejected
+        Enter reason
+        Send email to employee with rejection
+    END IF
+END IF
+
+END
+
+```
