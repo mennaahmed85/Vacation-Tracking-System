@@ -1,7 +1,7 @@
 # Vacation-Tracking-System
 A system that allows employees to manage their vacation and leave requests.
 
-##(1) Vision
+## (1) Vision
 The Vacation Tracking System (VTS) aims to simplify and improve the process of managing employee vacation time.
 
 ### Goals
