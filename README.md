@@ -39,7 +39,9 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
 ## (5) Domain
   
 -The system operates within an organization where vacation requests were previously handled manually, causing delays in approval and adding extra workload for the HR department.
+
 -Managers also had limited visibility into employees' vacation activities.
+
 -To address these issues, the company decided to implement a Vacation Tracking System that automates the request process and integrates with existing internal systems.
 
 ## (6) Actors
