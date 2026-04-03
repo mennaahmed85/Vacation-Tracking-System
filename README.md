@@ -30,13 +30,13 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
 - The system should be secure.
 - The system should be reliable.
 
-- ## (4) Constraints
+  ## (4) Constraints
 
 - The system must use existing hardware and middleware.
 - The system must be implemented as an extension to the existing intranet portal.
 - The system must use single sign-on (SSO) for authentication.
 
-- ## (5) Domain
+  ## (5) Domain
   
 -The system operates within an organization where vacation requests were previously handled manually, causing delays in approval and adding extra workload for the HR department.
 -Managers also had limited visibility into employees' vacation activities.
@@ -75,7 +75,7 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
  
   - ## (7.2) Flowchart Diagram 
  
-  - <img width="749" height="1961" alt="flowChart drawio" src="https://github.com/user-attachments/assets/70ed3451-0fc5-4216-ac0d-1b4dac63d805" />
+    <img width="749" height="1961" alt="flowChart drawio" src="https://github.com/user-attachments/assets/70ed3451-0fc5-4216-ac0d-1b4dac63d805" />
 
 ## (7.4) Pseudocode(Main flow) 
 
