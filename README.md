@@ -51,7 +51,7 @@ The Vacation Tracking System (VTS) aims to simplify and improve the process of m
 - HR Staff
 - System Administrator
 
-## (7) Use-Case :- Manage Time
+## (7) Use-Case :-Manage Time
 
 - ### (7.1) Entities (Data Model)
 
