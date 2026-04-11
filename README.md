@@ -294,7 +294,7 @@ function editPendingRequest(requestId, employeeId):
 
 <img width="1536" height="1024" alt="employee ui" src="https://github.com/user-attachments/assets/880ee5df-9328-43d8-87fd-f9cac9816b7e" />
 
-###(11.2) Manager UI :-
+### (11.2) Manager UI :-
 
 <img width="1536" height="1024" alt="manager ui" src="https://github.com/user-attachments/assets/51263cd7-d111-4fc0-8032-c5abbcb773a3" />
 
