@@ -302,5 +302,12 @@ function editPendingRequest(requestId, employeeId):
 
 <img width="752" height="800" alt="state machine digaram drawio" src="https://github.com/user-attachments/assets/540e2a6f-a227-4cc3-ad2a-66dda06c01a0" />
 
+## (13)  What if we need to have in the future another status like HR_Pending, HR_Approval with minimum change? 
+
+Instead of hardcoding status values (e.g., "PENDING", "APPROVED") in conditional statements, the system should use abstraction such as helper functions or configuration maps.
+
+For example, using a function like `canEdit(status)` or a configuration object that defines the behavior of each status allows adding new statuses (e.g., HR_Pending, HR_Approval) with minimal changes.
+
+This approach follows the Open/Closed Principle, where the system is open for extension but closed for modification.
 
 
