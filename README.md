@@ -169,3 +169,138 @@ function withdrawRequest(requestId, employeeId):
     return "Withdraw successful"
 ```
 
+## (9) Use-Case :-Cancel Approved Request
+
+### (9.1) Flowchart Diagram 
+
+<img width="791" height="1671" alt="Cancel Approved Request flow chart drawio" src="https://github.com/user-attachments/assets/540f11b9-23bf-44ee-bbd7-2e8f182076f9" />
+
+### (9.2) Sequence Diagram
+
+<img width="971" height="2031" alt="Cancel Approved Request sequence digram drawio (1)" src="https://github.com/user-attachments/assets/b1ad123c-c0d3-4c88-a8eb-6bc0f5e415a0" />
+
+
+ ### (9.3) Pseudocode
+
+```
+function cancelApprovedRequest(requestId, employeeId):
+
+    request = getRequest(requestId)
+
+    if request == null:
+        return "Request not found"
+
+    if request.employeeId != employeeId:
+        return "Unauthorized action"
+
+    if request.status != "APPROVED":
+        showError("Only approved requests can be cancelled")
+        return
+
+    if isFuture(request.date):
+        confirmation = prompt("Confirm cancellation?")
+
+    else if isRecentPast(request.date):
+        confirmation = prompt("Confirm cancellation and provide explanation?")
+        explanation = getExplanation()
+
+        if explanation is empty:
+            showError("Explanation is required")
+            return
+
+    else:
+        showError("Cannot cancel this request")
+        return
+
+    if confirmation == false:
+        cancelOperation()
+        return
+
+    request.status = "CANCELLED"
+    updateRequest(request)
+
+    restoreVacationBalance(employeeId, request.days)
+
+    sendNotificationAsync(manager, "Request cancelled")
+
+    return "Cancellation successful"
+```
+
+## (10) Use-Case :- Edit Pending Request
+
+### (10.1) Flowchart Diagram 
+
+<img width="1291" height="1796" alt="flow chart33 drawio" src="https://github.com/user-attachments/assets/57ff0708-bc13-4e48-b25c-21131d69e616" />
+
+### (10.2) Sequence Diagram
+
+<img width="791" height="2031" alt="333333333333333333333333 drawio" src="https://github.com/user-attachments/assets/eef74b33-1148-4c82-8ab6-aa25547a506d" />
+
+
+### (10.3) Pseudocode
+
+```
+function editPendingRequest(requestId, employeeId):
+
+    request = getRequest(requestId)
+
+    if request == null:
+        return "Request not found"
+
+    if request.employeeId != employeeId:
+        return "Unauthorized action"
+
+    if request.status != "PENDING":
+        showError("Only pending requests can be edited")
+        return
+
+    displayEditableForm(request)
+
+    updatedData = getUpdatedData()
+
+    action = getUserAction()
+
+    if action == "withdraw":
+
+        confirmation = prompt("Confirm withdrawal?")
+
+        if confirmation == false:
+            cancelOperation()
+            return
+
+        request.status = "WITHDRAWN"
+        updateRequest(request)
+
+        returnToHomePage()
+        return "Withdraw successful"
+
+    else if action == "edit":
+
+        isValid = validateData(updatedData)
+
+        if isValid == false:
+            showErrors()
+            return
+
+        updateRequestData(requestId, updatedData)
+
+        returnToHomePage()
+        return "Update successful"
+```
+
+## (11) Imagine the UI of Requests displayed to the Manager or Employee :- 
+
+### (11.1) Employee UI :- 
+
+<img width="1536" height="1024" alt="employee ui" src="https://github.com/user-attachments/assets/880ee5df-9328-43d8-87fd-f9cac9816b7e" />
+
+###(11.2) Manager UI :-
+
+<img width="1536" height="1024" alt="manager ui" src="https://github.com/user-attachments/assets/51263cd7-d111-4fc0-8032-c5abbcb773a3" />
+
+## (12) the state machine of the request :- 
+
+<img width="752" height="800" alt="state machine digaram drawio" src="https://github.com/user-attachments/assets/540e2a6f-a227-4cc3-ad2a-66dda06c01a0" />
+
+
+
