@@ -124,3 +124,48 @@ END IF
 END
 
 ```
+
+## (8) Use-Case :-Withdraw Request
+
+ ### (8.1) Flowchart Diagram 
+
+ <img width="586" height="1449" alt="Withdraw Request flow chart" src="https://github.com/user-attachments/assets/b42f8cff-8d0b-441a-864d-226c7848a3b7" />
+
+
+ ### (8.2) Sequence Diagram
+
+ <img width="991" height="1432" alt="Withdraw Request Sequence digram" src="https://github.com/user-attachments/assets/7b75f0fb-82c9-438c-a44a-297174012ad9" />
+
+ ### (8.3) Pseudocode
+
+```
+function withdrawRequest(requestId, employeeId):
+
+    request = getRequest(requestId)
+
+    if request == null:
+        return "Request not found"
+
+    if request.employeeId != employeeId:
+        return "Unauthorized action"
+
+    if request.status != "PENDING":
+        showError("Cannot withdraw non-pending request")
+        return
+
+    userConfirmation = promptConfirmation("Are you sure you want to withdraw?")
+
+    if userConfirmation == false:
+        cancelOperation()
+        return
+
+    request.status = "WITHDRAWN"
+    updateRequest(request)
+
+    removeFromManagerList(requestId)
+
+    sendNotificationAsync(to=manager, message="Request withdrawn")
+
+    return "Withdraw successful"
+```
+
